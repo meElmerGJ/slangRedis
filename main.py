@@ -115,8 +115,12 @@ def generate_data():
 
 # Function to delete all records (TEST USAGE ONLY)
 def delete_all_data():
-    r.flushdb()
-    sys_msg("INFO", "Todos los registros han sido eliminados")
+    sys_msg('WARNING', 'Seguro que desea eliminar todos los registros?')
+    if input("\ttype 'y' to confirm >> ") == 'y':
+        r.flushdb()
+        sys_msg("INFO", "Todos los registros han sido eliminados")
+    else:
+        sys_msg("INFO", "Eliminacion cancelada")
 
 
 # /////////////////////////////////////////////////////////////////////////////////////////
